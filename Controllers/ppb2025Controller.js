@@ -5,7 +5,7 @@ const getAllDatas = async (req, res) => {
     const [data] = await DataModel.getAllDatas();
 
     res.json({
-      message: "GET all users success",
+      message: "GET all Data bantuan-2025 success",
       data: data,
     });
   } catch (error) {
@@ -45,7 +45,7 @@ const createNewData = async (req, res) => {
   try {
     await DataModel.createNewData(body);
     res.status(201).json({
-      message: "CREATE new user success",
+      message: "CREATE new data success",
       data: body,
     });
   } catch (error) {
@@ -62,7 +62,7 @@ const updateData = async (req, res) => {
   try {
     await DataModel.updateData(body, idData);
     res.json({
-      message: "UPDATE user success",
+      message: "UPDATE data success",
       data: {
         id: idData,
         ...body,

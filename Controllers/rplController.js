@@ -1,4 +1,4 @@
-const DataModel = require("../Models/pdbModels");
+const DataModel = require("../Models/rplModels");
 
 const getAllDatas = async (req, res) => {
   try {
@@ -20,16 +20,27 @@ const createNewData = async (req, res) => {
   const { body } = req;
 
   if (
-    !body.title ||
-    !body.Tahun ||
-    !body.Provinsi ||
-    !body.JenisBudidaya ||
-    !body.KabKota ||
-    !body.Matra ||
-    !body.KelompokIkan ||
-    !body.JenisIkan ||
-    !body.Volume ||
-    !body.NilaiProduksi
+    !body.NAMOBJ ||
+    !body.ORDE01 ||
+    !body.KODKWS ||
+    !body.JNSRPR ||
+    !body.WKLPR ||
+    !body.WKMH ||
+    !body.DLKPEL ||
+    !body.TSS ||
+    !body.MIGAS ||
+    !body.HANKAM ||
+    !body.WPMB ||
+    !body.APKI ||
+    !body.DLPI ||
+    !body.PSSA ||
+    !body.MBL ||
+    !body.PKBL ||
+    !body.KS ||
+    !body.REMARK ||
+    !body.LUASHA ||
+    !body.Shape_Lenght ||
+    !body.Shape_Area
   ) {
     return res.status(400).json({
       message: "Anda mengirimkan data yang salah",
@@ -59,7 +70,7 @@ const updateData = async (req, res) => {
     res.json({
       message: "UPDATE data PDB Perikanan success",
       data: {
-        id: idData,
+        OBJECTID: idData,
         ...body,
       },
     });

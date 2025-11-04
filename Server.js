@@ -6,6 +6,7 @@ var cors = require("cors");
 
 const pdbRoute = require("./Routes/pdbRoute");
 const ppb2025Route = require("./Routes/ppb2025Route");
+const rplRoute = require("./Routes/rplRoute");
 
 const logRequest = require("./Middlewares/logs");
 
@@ -43,6 +44,7 @@ app.use(logRequest);
 
 app.use("/pdb", pdbRoute);
 app.use("/ppb-2025", ppb2025Route);
+app.use("/rpl", rplRoute);
 
 app.use((err, req, res, next) => {
   res.status(500).json({
