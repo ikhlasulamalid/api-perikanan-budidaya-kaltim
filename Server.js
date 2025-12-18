@@ -28,7 +28,8 @@ const app = express();
 const allowedOrigins =
   process.env.NODE_ENV === "production"
     ? [
-        process.env.FRONTEND_URL, // contoh: https://namadomainmu.com
+        process.env.FRONTEND_URL,
+        process.env.BACKEND_URL, // contoh: https://namadomainmu.com
       ]
     : [
         "http://localhost:5173",
