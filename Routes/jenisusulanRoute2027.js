@@ -1,23 +1,17 @@
 const express = require("express");
-
-const DataController = require("../Controllers/rplController");
+const DataController = require("../Controllers/jenisusulanController2027");
 const { verifyToken } = require("../Middlewares/auth");
 const { allowRoles } = require("../Middlewares/authorize");
 
 const router = express.Router();
 
-// CREATE - POST
-router.post(
-  "/",
-  verifyToken,
-  allowRoles("admin"),
-  DataController.createNewData
-);
+// CREATE
+router.post("/", DataController.createNewData);
 
-// READ - GET
-router.get("/", DataController.getAllDatas);
+// READ
+router.get("/", verifyToken, allowRoles("admin"), DataController.getAllDatas);
 
-// UPDATE - PATCH
+// UPDATE
 router.patch(
   "/:idData",
   verifyToken,
@@ -25,7 +19,7 @@ router.patch(
   DataController.updateData
 );
 
-// DELETE - DELETE
+// DELETE
 router.delete(
   "/:idData",
   verifyToken,

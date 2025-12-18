@@ -1,0 +1,191 @@
+const getPool = require("../Config/Config");
+
+const Tabel = "daftar_penerima_bantuan_2024";
+
+const getAllDatas = () => {
+  const SQLQuery = `SELECT * FROM ${Tabel}`;
+
+  return getPool.execute(SQLQuery);
+};
+
+const createNewData = (body) => {
+  const SQLQuery = `  INSERT INTO ${Tabel} (
+                          NAMA_KELOMPOK,
+                          NAMA_KETUA,
+                          KABUPATEN_KOTA,
+                          ALAMAT,
+                          DESA_KELURAHAN,
+                          KECAMATAN,
+                          Jenis_Bantuan_1,
+                          Harga_Satuan_1,
+                          Volume_1,
+                          Satuan_1,
+                          Nilai_1,
+                          Jenis_Bantuan_2,
+                          Harga_Satuan_2,
+                          Volume_2,
+                          Satuan_2,
+                          Nilai_2,
+                          Jenis_Bantuan_3,
+                          Harga_Satuan_3,
+                          Volume_3,
+                          Satuan_3,
+                          Nilai_3,
+                          Jenis_Bantuan_4,
+                          Harga_Satuan_4,
+                          Volume_4,
+                          Satuan_4,
+                          Nilai_4,
+                          Jenis_Bantuan_5,
+                          Harga_Satuan_5,
+                          Volume_5,
+                          Satuan_5,
+                          Nilai_5,
+                          Jenis_Bantuan_6,
+                          Harga_Satuan_6,
+                          Volume_6,
+                          Satuan_6,
+                          Nilai_6,
+                          Jenis_Bantuan_7,
+                          Harga_Satuan_7,
+                          Volume_7,
+                          Satuan_7,
+                          Nilai_7,
+                          Jenis_Bantuan_8,
+                          Harga_Satuan_8,
+                          Volume_8,
+                          Satuan_8,
+                          Nilai_8,
+                          Jenis_Bantuan_9,
+                          Harga_Satuan_9,
+                          Volume_9,
+                          Satuan_9,
+                          Nilai_9
+                        ) VALUES (
+                          '${body.NAMA_KELOMPOK}',
+                          '${body.NAMA_KETUA}',
+                          '${body.KABUPATEN_KOTA}',
+                          '${body.ALAMAT}',
+                          '${body.DESA_KELURAHAN}',
+                          '${body.KECAMATAN}',
+                          '${body.Jenis_Bantuan_1}',
+                          '${body.Harga_Satuan_1}',
+                          '${body.Volume_1}',
+                          '${body.Satuan_1}',
+                          '${body.Nilai_1}',
+                          '${body.Jenis_Bantuan_2}',
+                          '${body.Harga_Satuan_2}',
+                          '${body.Volume_2}',
+                          '${body.Satuan_2}',
+                          '${body.Nilai_2}',
+                          '${body.Jenis_Bantuan_3}',
+                          '${body.Harga_Satuan_3}',
+                          '${body.Volume_3}',
+                          '${body.Satuan_3}',
+                          '${body.Nilai_3}',
+                          '${body.Jenis_Bantuan_4}',
+                          '${body.Harga_Satuan_4}',
+                          '${body.Volume_4}',
+                          '${body.Satuan_4}',
+                          '${body.Nilai_4}',
+                          '${body.Jenis_Bantuan_5}',
+                          '${body.Harga_Satuan_5}',
+                          '${body.Volume_5}',
+                          '${body.Satuan_5}',
+                          '${body.Nilai_5}',
+                          '${body.Jenis_Bantuan_6}',
+                          '${body.Harga_Satuan_6}',
+                          '${body.Volume_6}',
+                          '${body.Satuan_6}',
+                          '${body.Nilai_6}',
+                          '${body.Jenis_Bantuan_7}',
+                          '${body.Harga_Satuan_7}',
+                          '${body.Volume_7}',
+                          '${body.Satuan_7}',
+                          '${body.Nilai_7}',
+                          '${body.Jenis_Bantuan_8}',
+                          '${body.Harga_Satuan_8}',
+                          '${body.Volume_8}',
+                          '${body.Satuan_8}',
+                          '${body.Nilai_8}',
+                          '${body.Jenis_Bantuan_9}',
+                          '${body.Harga_Satuan_9}',
+                          '${body.Volume_9}',
+                          '${body.Satuan_9}',
+                          '${body.Nilai_9}'
+                                                  )`;
+
+  return getPool.execute(SQLQuery);
+};
+
+const updateData = (body, idData) => {
+  const SQLQuery = `  UPDATE ${Tabel} 
+                        SET
+                          NAMA_KELOMPOK='${body.NAMA_KELOMPOK}',
+                          NAMA_KETUA='${body.NAMA_KETUA}',
+                          KABUPATEN_KOTA='${body.KABUPATEN_KOTA}',
+                          ALAMAT='${body.ALAMAT}',
+                          DESA_KELURAHAN='${body.DESA_KELURAHAN}',
+                          KECAMATA='${body.KECAMATA}',
+                          Jenis_Bantuan_1='${body.Jenis_Bantuan_1}',
+                          Harga_Satuan_1='${body.Harga_Satuan_1}',
+                          Volume_1='${body.Volume_1}',
+                          Satuan_1='${body.Satuan_1}',
+                          Nilai_1='${body.Nilai_1}',
+                          Jenis_Bantuan_2='${body.Jenis_Bantuan_2}',
+                          Harga_Satuan_2='${body.Harga_Satuan_2}',
+                          Volume_2='${body.Volume_2}',
+                          Satuan_2='${body.Satuan_2}',
+                          Nilai_2='${body.Nilai_2}',
+                          Jenis_Bantuan_3='${body.Jenis_Bantuan_3}',
+                          Harga_Satuan_3='${body.Harga_Satuan_3}',
+                          Volume_3='${body.Volume_3}',
+                          Satuan_3='${body.Satuan_3}',
+                          Nilai_3='${body.Nilai_3}',
+                          Jenis_Bantuan_4='${body.Jenis_Bantuan_4}',
+                          Harga_Satuan_4='${body.Harga_Satuan_4}',
+                          Volume_4='${body.Volume_4}',
+                          Satuan_4='${body.Satuan_4}',
+                          Nilai_4='${body.Nilai_4}',
+                          Jenis_Bantuan_5='${body.Jenis_Bantuan_5}',
+                          Harga_Satuan_5='${body.Harga_Satuan_5}',
+                          Volume_5='${body.Volume_5}',
+                          Satuan_5='${body.Satuan_5}',
+                          Nilai_5='${body.Nilai_5}',
+                          Jenis_Bantuan_6='${body.Jenis_Bantuan_6}',
+                          Harga_Satuan_6='${body.Harga_Satuan_6}',
+                          Volume_6='${body.Volume_6}',
+                          Satuan_6='${body.Satuan_6}',
+                          Nilai_6='${body.Nilai_6}',
+                          Jenis_Bantuan_7='${body.Jenis_Bantuan_7}',
+                          Harga_Satuan_7='${body.Harga_Satuan_7}',
+                          Volume_7='${body.Volume_7}',
+                          Satuan_7='${body.Satuan_7}',
+                          Nilai_7='${body.Nilai_7}',
+                          Jenis_Bantuan_8='${body.Jenis_Bantuan_8}',
+                          Harga_Satuan_8='${body.Harga_Satuan_8}',
+                          Volume_8='${body.Volume_8}',
+                          Satuan_8='${body.Satuan_8}',
+                          Nilai_8='${body.Nilai_8}',
+                          Jenis_Bantuan_9='${body.Jenis_Bantuan_9}',
+                          Harga_Satuan_9='${body.Harga_Satuan_9}',
+                          Volume_9='${body.Volume_9}',
+                          Satuan_9='${body.Satuan_9}',
+                          Nilai_9='${body.Nilai_9}' 
+                        WHERE id=${idData}`;
+
+  return getPool.execute(SQLQuery);
+};
+
+const deleteData = (idData) => {
+  const SQLQuery = `DELETE FROM ${Tabel} WHERE id=${idData}`;
+
+  return getPool.execute(SQLQuery);
+};
+
+module.exports = {
+  getAllDatas,
+  createNewData,
+  updateData,
+  deleteData,
+};

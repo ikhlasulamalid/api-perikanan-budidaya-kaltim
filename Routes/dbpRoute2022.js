@@ -1,6 +1,6 @@
 const express = require("express");
 
-const DataController = require("../Controllers/rplController");
+const DataController = require("../Controllers/dpbController2022");
 const { verifyToken } = require("../Middlewares/auth");
 const { allowRoles } = require("../Middlewares/authorize");
 
