@@ -17,6 +17,8 @@ const dbpRoute2023 = require("./Routes/dbpRoute2023");
 const dbpRoute2024 = require("./Routes/dbpRoute2024");
 const dbpRoute2025 = require("./Routes/dbpRoute2025");
 const userRoute = require("./Routes/userRoute");
+const pembenihan = require("./Routes/Pembenihan");
+const produksi = require("./Routes/produksiRoute");
 
 const logRequest = require("./Middlewares/logs");
 
@@ -50,7 +52,7 @@ app.use(
     },
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
     credentials: true,
-  })
+  }),
 );
 
 app.use(express.json());
@@ -58,7 +60,7 @@ app.use(express.json());
 // Serve file upload
 app.use(
   "/DokumenUsulan",
-  express.static(path.join(__dirname, "DokumenUsulan"))
+  express.static(path.join(__dirname, "DokumenUsulan")),
 );
 app.use("/DokumenUsulan", express.static("DokumenUsulan"));
 
@@ -77,6 +79,8 @@ app.use("/daftar-penerima-bantuan-tahun-2022", dbpRoute2022);
 app.use("/daftar-penerima-bantuan-tahun-2023", dbpRoute2023);
 app.use("/daftar-penerima-bantuan-tahun-2024", dbpRoute2024);
 app.use("/daftar-penerima-bantuan-tahun-2025", dbpRoute2025);
+app.use("/pembenihan", pembenihan);
+app.use("/data-produksi", produksi);
 
 app.use((err, req, res, next) => {
   res.status(500).json({
